@@ -22,7 +22,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://creatingdimensions.onrender.com',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS' , 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization']
