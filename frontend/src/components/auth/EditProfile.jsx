@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../../store/slices/authSlice';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://creating-dimensions-backend.onrender.com';
 
 const EditProfile = () => {
   const navigate = useNavigate();

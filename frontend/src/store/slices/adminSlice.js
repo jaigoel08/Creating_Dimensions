@@ -22,7 +22,7 @@ export const uploadNotes = createAsyncThunk(
       console.log('Token being sent:', token);
 
       const response = await axios.post(
-        'http://localhost:3000/admin/upload-notes', 
+        'https://creating-dimensions-backend.onrender.com/admin/upload-notes', 
         formData, 
         { 
           headers: { 
@@ -57,7 +57,7 @@ export const fetchAllNotes = createAsyncThunk(
 
       console.log('Fetching notes with token:', token);
 
-      const response = await axios.get('http://localhost:3000/admin/notes', {
+      const response = await axios.get('https://creating-dimensions-backend.onrender.com/admin/notes', {
         headers: { 
           Authorization: `Bearer ${token}` 
         }
@@ -87,7 +87,7 @@ export const fetchAllStudents = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get('http://localhost:3000/admin/users', {
+      const response = await axios.get('https://creating-dimensions-backend.onrender.com/admin/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data.users;
@@ -107,7 +107,7 @@ export const updateNote = createAsyncThunk(
       }
 
       const response = await axios.patch(
-        `http://localhost:3000/admin/notes/${noteId}`,
+        `https://creating-dimensions-backend.onrender.com/admin/notes/${noteId}`,
         { ...noteData, noteId }, // Include noteId in the request body
         { 
           headers: { 
@@ -135,14 +135,14 @@ export const deleteNote = createAsyncThunk(
         return rejectWithValue({ message: 'Authentication token not found' });
       }
 
-      await axios.delete(`http://localhost:3000/admin/notes/${noteId}`, {
+      await axios.delete(`https://creating-dimensions-backend.onrender.com/admin/notes/${noteId}`, {
         headers: { Authorization: `Bearer ${token}` },
-        data: { noteId } // Include noteId in the request body
+        data: { noteId } 
       });
 
-      return noteId; // Return the noteId for state updates
+      return noteId; 
     } catch (error) {
-      console.error('Delete error:', error);
+      
       return rejectWithValue(error.response?.data || { message: 'Error deleting note' });
     }
   }
@@ -184,12 +184,12 @@ const adminSlice = createSlice({
         state.isLoading = false;
         state.notes = action.payload;
         state.error = null;
-        console.log('Notes stored in state:', state.notes);
+       
       })
       .addCase(fetchAllNotes.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload?.message || 'Failed to fetch notes';
-        console.error('Notes fetch failed:', state.error);
+       
       })
       .addCase(fetchAllStudents.pending, (state) => {
         state.isLoading = true;

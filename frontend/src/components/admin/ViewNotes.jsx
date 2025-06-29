@@ -74,15 +74,15 @@ const ViewNotes = () => {
               {note.pdfUrl && (
                 <div className="mb-4">
                   <iframe
-                    src={`http://localhost:3000/${note.pdfUrl}`}
+                    src={`https://creating-dimensions-backend.onrender.com/${note.pdfUrl}`}
                     className="w-full h-48 mb-2 border border-gray-300 rounded"
                     title={`PDF preview for ${note.title}`}
                   >
-                    <p>Your browser does not support iframes. <a href={`http://localhost:3000/${note.pdfUrl}`} target="_blank" rel="noopener noreferrer">Click here to view the PDF</a></p>
+                    <p>Your browser does not support iframes. <a href={`https://creating-dimensions-backend.onrender.com/${note.pdfUrl}`} target="_blank" rel="noopener noreferrer">Click here to view the PDF</a></p>
                   </iframe>
                   <div className="flex space-x-2">
                     <a 
-                      href={`http://localhost:3000/${note.pdfUrl}`}
+                      href={`https://creating-dimensions-backend.onrender.com/${note.pdfUrl}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:text-blue-700"
@@ -91,7 +91,7 @@ const ViewNotes = () => {
                     </a>
                     <span className="text-gray-400">|</span>
                     <a
-                      href={`http://localhost:3000/${note.pdfUrl}`}
+                      href={`https://creating-dimensions-backend.onrender.com/${note.pdfUrl}`}
                       download
                       className="text-blue-500 hover:text-blue-700"
                     >

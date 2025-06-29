@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://creating-dimensions-backend.onrender.com';
 
 const Profile = () => {
   const { user, token, isLoggedIn } = useSelector((state) => state.auth);

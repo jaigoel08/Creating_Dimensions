@@ -32,3 +32,10 @@ exports.newMessage = async (req, res, next) => {
   res.json(conversation);
 }
 
+exports.deleteConversation = async (req, res, next) => {
+  const { id } = req.params;
+  await Conversation.findByIdAndDelete(id);
+  res.status(204).json({message: "Conversation deleted"});
+}
+
+
